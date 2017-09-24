@@ -45,7 +45,7 @@ TotDayStep.df$Day <- ymd(TotDayStep.df$Day)
 ggplot(TotDayStep.df, aes(Total.Steps)) + geom_histogram(binwidth = 500) + guides(fill = FALSE)
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png)
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png)
 
 ```r
 StepsByDayMean <- mean(TotDayStep.df$Total.Steps, na.rm = T)
@@ -68,7 +68,7 @@ with(AvgIntervalStep.df, plot(Interval, Avg.Step, type = "l", ylab = "Avg. Steps
                               main = "Avg Step across all days in every 5-min Intervals"))
 ```
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png)
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
 
 ```r
 # Identifying the interval with the maximum number of Avg steps
@@ -114,7 +114,7 @@ TotDayStep2.df$Day <- ymd(TotDayStep2.df$Day)
 ggplot(TotDayStep2.df, aes(Total.Steps)) + geom_histogram(binwidth = 500) + guides(fill = FALSE)
 ```
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png)
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png)
 
 ```r
 StepsByDayMean2 <- mean(TotDayStep2.df$Total.Steps)
@@ -144,4 +144,4 @@ with(subset(WeekActivity, day == "weekend"), plot(interval, steps, type = "l",
                                                   xlab = "5-min Interval", ylab = "Avg. Steps", main = "Weekend"))
 ```
 
-![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png)
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png)
