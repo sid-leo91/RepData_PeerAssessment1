@@ -45,23 +45,15 @@ TotDayStep.df$Day <- ymd(TotDayStep.df$Day)
 ggplot(TotDayStep.df, aes(Total.Steps)) + geom_histogram(binwidth = 500) + guides(fill = FALSE)
 ```
 
-![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15-1.png)
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
 
 ```r
-mean(TotDayStep.df$Total.Steps, na.rm = T)
+StepsByDayMean <- mean(TotDayStep.df$Total.Steps, na.rm = T)
+StepsByDayMedian <- median(TotDayStep.df$Total.Steps, na.rm = T)
 ```
 
-```
-## [1] 9354.23
-```
-
-```r
-median(TotDayStep.df$Total.Steps, na.rm = T)
-```
-
-```
-## [1] 10395
-```
+* Mean: 9354.2295082
+* Median:  10395
 
 ## What is the average daily activity pattern?
 
@@ -76,17 +68,15 @@ with(AvgIntervalStep.df, plot(Interval, Avg.Step, type = "l", ylab = "Avg. Steps
                               main = "Avg Step across all days in every 5-min Intervals"))
 ```
 
-![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16-1.png)
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png)
 
 ```r
 # Identifying the interval with the maximum number of Avg steps
-AvgIntervalStep.df[which(AvgIntervalStep.df$Avg.Step == max(AvgIntervalStep.df$Avg.Step)),]
+MaxStepsInterval <- AvgIntervalStep.df[which(AvgIntervalStep.df$Avg.Step == max(AvgIntervalStep.df$Avg.Step)),
+                                "Interval"]
 ```
 
-```
-##     Interval Avg.Step
-## 104      835 206.1698
-```
+Interval with Maximum Avg. Steps: 835
 
 ## Imputing missing values
 
@@ -124,23 +114,15 @@ TotDayStep2.df$Day <- ymd(TotDayStep2.df$Day)
 ggplot(TotDayStep2.df, aes(Total.Steps)) + geom_histogram(binwidth = 500) + guides(fill = FALSE)
 ```
 
-![plot of chunk unnamed-chunk-17](figure/unnamed-chunk-17-1.png)
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png)
 
 ```r
-mean(TotDayStep2.df$Total.Steps)
+StepsByDayMean2 <- mean(TotDayStep2.df$Total.Steps)
+StepsByDayMedian2 <- median(TotDayStep2.df$Total.Steps)
 ```
 
-```
-## [1] 10766.18
-```
-
-```r
-median(TotDayStep2.df$Total.Steps)
-```
-
-```
-## [1] 10766.13
-```
+* Mean: 1.0766181 &times; 10<sup>4</sup>
+* Median:  1.076613 &times; 10<sup>4</sup>
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
@@ -162,4 +144,4 @@ with(subset(WeekActivity, day == "weekend"), plot(interval, steps, type = "l",
                                                   xlab = "5-min Interval", ylab = "Avg. Steps", main = "Weekend"))
 ```
 
-![plot of chunk unnamed-chunk-18](figure/unnamed-chunk-18-1.png)
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png)
