@@ -45,7 +45,7 @@ TotDayStep.df$Day <- ymd(TotDayStep.df$Day)
 ggplot(TotDayStep.df, aes(Total.Steps)) + geom_histogram(binwidth = 500) + guides(fill = FALSE)
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png)
 
 ```r
 StepsByDayMean <- mean(TotDayStep.df$Total.Steps, na.rm = T)
